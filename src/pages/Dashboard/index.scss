@@ -1,0 +1,45 @@
+// .ts-navbar
+//     background-color: #fff
+.ts-aside {
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .2), 0 1px 1px rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12)
+}
+.ts-logo{
+    padding-top: 40px;
+    padding-bottom: 20px;
+    text-align: center;
+    font-size: 20px;
+}
+.ts-avator{
+    &-img img{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+    }
+    &-name{
+        font-size: 12px;
+        color: #73909d;
+    }
+    text-align: center;
+    padding-bottom: 50px;
+}
+.menu-label{
+    padding-left: 10px;
+}
+.menu-list a{
+    color: #73909d;
+    box-sizing: border-box;
+    padding-left: 1.75em;
+    &:hover{
+        border-left: 2px solid #ff782d;
+    }
+}
+
+.card-img{
+    height: 200px;
+    background-color: #eee;
+}
+
+.column-card{
+    padding: 0 40px;
+}
