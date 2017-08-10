@@ -6,9 +6,33 @@ class Dashboard extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            asideHeight: window.innerHeight + 'px',
+            cards: [{
+                id: 1,
+                title: '番茄工作法',
+                subtitle: '工作25分钟，休息5分钟',
+                link: '/todo',
+                imgUrl: ''
+            },
+            {
+                id: 2,
+                title: '番茄工作法',
+                subtitle: '工作25分钟，休息5分钟',
+                link: '/todo',
+                imgUrl: ''
+            }, {
+                id: 3,
+                title: '番茄工作法',
+                subtitle: '工作25分钟，休息5分钟',
+                link: '/todo',
+                imgUrl: ''
+            },]
+        }
     }
 
     render() {
+        const { cards } = this.state
         return (
             <div>
                 {/* <Navbar className="ts-navbar">
@@ -26,7 +50,7 @@ class Dashboard extends Component {
                     </Navbar.Menu>
                 </Navbar> */}
                 <Columns>
-                    <Column span="2" className="ts-aside">
+                    <Column span="2" className="ts-aside" style={{ height: this.state.asideHeight }}>
                         <div className="ts-logo">
                             <div>TStudio</div>
                         </div>
@@ -50,54 +74,34 @@ class Dashboard extends Component {
                         </Menu>
                     </Column>
                     <Column span="10">
+                        <Columns className="ts-dashboard-header">
+                            <div>8月8日</div>
+                        </Columns>
                         <Columns>
-                            <Column span='4' className="column-card">
-                                <Card>
-                                    <Card.Image>
-                                        <div className="card-img">
+                            {cards.map(card => {
+                                return (
+                                    <Column span='4'  key={card.id}>
+                                        <Card >
+                                            <Card.Image>
+                                                <div className="card-img">
 
-                                        </div>
-                                    </Card.Image>
-                                    <Card.Content>
-                                        <div className="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.</p>
-                                            <small>Lorem ipsum dolor</small>
-                                        </div>
-                                    </Card.Content>
-                                </Card>
-                            </Column>
+                                                </div>
+                                            </Card.Image>
+                                            <Card.Content>
+                                                <div className="content">
+                                                    <p>{card.title}</p>
+                                                    <small>{card.subtitle}</small>
+                                                </div>
+                                            </Card.Content>
+                                        </Card>
+                                    </Column>
+                                )
+                            })}
+                             <Column span='4'>
+                                <div className="card-more">
 
-                            <Column span='4' className="column-card">
-                                <Card>
-                                    <Card.Image>
-                                        <div className="card-img">
-
-                                        </div>
-                                    </Card.Image>
-                                    <Card.Content>
-                                        <div className="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.</p>
-                                            <small>Lorem ipsum dolor</small>
-                                        </div>
-                                    </Card.Content>
-                                </Card>
-                            </Column>
-
-                            <Column span='4' className="column-card">
-                                <Card>
-                                    <Card.Image>
-                                        <div className="card-img">
-
-                                        </div>
-                                    </Card.Image>
-                                    <Card.Content>
-                                        <div className="content">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.</p>
-                                            <small>Lorem ipsum dolor</small>
-                                        </div>
-                                    </Card.Content>
-                                </Card>
-                            </Column>
+                                </div>
+                             </Column>
                         </Columns>
                     </Column>
                 </Columns>

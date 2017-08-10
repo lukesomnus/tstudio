@@ -27,11 +27,21 @@
   box-sizing: border-box;
   padding-left: 1.75em; }
   .menu-list a:hover {
-    border-left: 2px solid #ff782d; }
+    border-left: 3px solid #ff782d; }
 
 .card-img {
   height: 200px;
-  background-color: #eee; }
+  background-color: #ff782d; }
 
 .column-card {
-  padding: 0 40px; }
+  width: 80%;
+  margin: 0 auto; }
+
+.ts-dashboard-header {
+  padding-top: 20px; }
+
+.card-more {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #fff;
+  height: 200px; }
