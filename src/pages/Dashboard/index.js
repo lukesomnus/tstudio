@@ -12,7 +12,7 @@ class Dashboard extends Component {
                 id: 1,
                 title: '番茄工作法',
                 subtitle: '工作25分钟，休息5分钟',
-                link: '/todo',
+                link: '/tomato',
                 imgUrl: ''
             },
             {
@@ -27,8 +27,18 @@ class Dashboard extends Component {
                 subtitle: '工作25分钟，休息5分钟',
                 link: '/todo',
                 imgUrl: ''
-            },]
+            }, {
+                id: 4,
+                title: '番茄工作法',
+                subtitle: '工作25分钟，休息5分钟',
+                link: '/todo',
+                imgUrl: ''
+            }]
         }
+    }
+
+    cardClickHandler(link) {
+        this.props.history.push(link)
     }
 
     render() {
@@ -49,7 +59,7 @@ class Dashboard extends Component {
                         </Navbar.Start>
                     </Navbar.Menu>
                 </Navbar> */}
-                <Columns>
+                <Columns className="ts-root">
                     <Column span="2" className="ts-aside" style={{ height: this.state.asideHeight }}>
                         <div className="ts-logo">
                             <div>TStudio</div>
@@ -73,15 +83,15 @@ class Dashboard extends Component {
                             </Menu.List>
                         </Menu>
                     </Column>
-                    <Column span="10">
+                    <Column span="10" className="ts-dashboard">
                         <Columns className="ts-dashboard-header">
                             <div>8月8日</div>
                         </Columns>
-                        <Columns>
+                        <Columns className="ts-dashboard-container">
                             {cards.map(card => {
                                 return (
-                                    <Column span='4'  key={card.id}>
-                                        <Card >
+                                    <Column span='3' key={card.id}>
+                                        <Card className="column-card" onClick={() => { this.cardClickHandler(card.link) }}>
                                             <Card.Image>
                                                 <div className="card-img">
 
@@ -97,11 +107,11 @@ class Dashboard extends Component {
                                     </Column>
                                 )
                             })}
-                             <Column span='4'>
-                                <div className="card-more">
-
+                            <Column span='3'>
+                                <div className="card-more card">
+                                    <span>+</span>
                                 </div>
-                             </Column>
+                            </Column>
                         </Columns>
                     </Column>
                 </Columns>

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Introduction from './pages/Introduction';
 import Dashboard from './pages/Dashboard';
+import Tomato from './pages/Plugins/Tomato/Tomato'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 class App extends Component {
   render() {
@@ -11,6 +12,7 @@ class App extends Component {
         <div>
           <Route path="/intro" component={Introduction} />
           <Route path="/dashboard" component={Dashboard} />
+          <Route path="/tomato" component={Tomato} />
         </div>
 
       </Router>
