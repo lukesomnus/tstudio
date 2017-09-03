@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Columns, Column, Menu, Hero, Section } from '../somnus'
 
+
+// hello
 export default class Introduction extends Component {
 
     constructor(props) {
