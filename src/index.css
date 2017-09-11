@@ -5236,3 +5236,10 @@ label.panel-block {
 
 body {
   background-color: #f3f5f7; }
+/* 
+.clearfix::before {
+  display: table;
+  content: ''; }
+
+.clearfix::after {
+  clear: both; } */
