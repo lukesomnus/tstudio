@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import TodoItem from './TodoItem';
-import { Columns, Column} from '../../../somnus'
+import { Columns, Column } from '../../../somnus'
 import './todo.css'
+
 export default class Todo extends Component {
     constructor(props) {
         super(props);
@@ -10,6 +11,25 @@ export default class Todo extends Component {
             selectedPriority: 'all',
             inputVal: ''
         }
+    }
+
+    todoTypes = [
+        {
+            text: '重要但不紧急',
+            class: 'primary'
+        }
+    ]
+
+    _addTodo() {
+
+    }
+
+    _toggleTodo() {
+
+    }
+
+    _deleteTodo() {
+
     }
 
     render() {
@@ -49,7 +69,6 @@ export default class Todo extends Component {
                     </TodoItem>
                 </Column>
             </Columns>
-
         )
     }
 }

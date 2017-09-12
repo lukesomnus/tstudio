@@ -9,7 +9,7 @@ export default function ({ content, main, priority }) {
                     sdfsfsd
                 </div>
                 <div className="todo-content-comment">
-
+                    
                 </div>
             </div>
         </div>
