@@ -17,7 +17,7 @@ import propTypes from 'prop-types';
 export default function Input({ children, className, color, size, leftIcon, rightIcon, ...others }) {
 
     const classString = cn(
-        'container',
+        'input',
         {
             [`is-${color}`]: color,
             [`is-${size}`]: size,

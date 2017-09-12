@@ -9,6 +9,9 @@ export { default as Hero} from './Layout/Hero'
 export { default as Section }from './Layout/Section'
 export { default as Navbar} from './Components/Navbar'
 export { default as Card } from './Components/Card'
+export { default as Input} from './Form/Input'
+export { default as Field} from './Form/Field'
+export { default as Dropdown} from './Components/Dropdown'
 // export {
 //     Menu,
 //     MenuList,
