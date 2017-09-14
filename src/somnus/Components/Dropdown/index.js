@@ -14,19 +14,24 @@ export default class Dropdown extends Component {
             isActive: !this.state.isActive
         })
     }
+
+    _onSelect(item) {
+        this._toggle();
+        this.props.onSelect(item);
+    }
     render() {
-        const { className, items, onClick} = this.props;
+        const { className, placeholder, items, onSelect } = this.props;
 
         const dropdonwClassName = cn(
             "dropdown",
-            {"is-active":this.state.isActive},
+            { "is-active": this.state.isActive },
             className
         )
         return (
             <div className={dropdonwClassName}>
                 <div className="dropdown-trigger">
-                    <button className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={()=>{this._toggle()}}>
-                        <span>Dropdown button</span>
+                    <button className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={() => { this._toggle() }}>
+                        <span>{placeholder}</span>
                         <span className="icon is-small">
                             <i className="fa fa-angle-down" aria-hidden="true"></i>
                         </span>
@@ -36,8 +41,8 @@ export default class Dropdown extends Component {
                     <div className="dropdown-content">
                         {
                             items.map(item => (
-                                <a href="#" className="dropdown-item" onClick={onClick}>
-                                    {item}
+                                <a key={item.id} href="#" className="dropdown-item" onClick={() => { this._onSelect(item) }}>
+                                    {item.name}
                                 </a>
                             ))
                         }

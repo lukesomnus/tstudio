@@ -1,0 +1,21 @@
+@charset "utf-8";
+@import "bulma/bulma.sass";
+
+$app-background-color: #EEEEEE;
+.section.is-fullwidth {
+    padding: 0 !important;
+}
+
+body {
+    background-color: $app_background_color;
+    height: 2000px;
+}
+
+.clearfix::before {
+    display: table;
+    content: '';
+}
+
+.clearfix::after {
+    clear: both;
+}

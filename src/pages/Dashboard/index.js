@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Navbar, Section, Columns, Column, Menu, Card } from '../../somnus'
 import './index.css'
-import avator from '../../avator.jpeg';
+import cn from 'classnames'
 class Dashboard extends Component {
 
     constructor(props) {
@@ -42,9 +42,10 @@ class Dashboard extends Component {
     }
 
     render() {
-        const { cards } = this.state
+        const { cards, necks, selectedNeck } = this.state
         return (
             <div>
+            
                 {/* <Navbar className="ts-navbar">
                     <Navbar.Brand>
                         <Navbar.Item>
@@ -59,7 +60,7 @@ class Dashboard extends Component {
                         </Navbar.Start>
                     </Navbar.Menu>
                 </Navbar> */}
-                <Columns className="ts-root">
+                {/* <Columns className="ts-root">
                     <Column span="2" className="ts-aside" style={{ height: this.state.asideHeight }}>
                         <div className="ts-logo">
                             <div>TStudio</div>
@@ -114,8 +115,8 @@ class Dashboard extends Component {
                             </Column>
                         </Columns>
                     </Column>
-                </Columns>
-            </div>
+                </Columns> */}
+            </div >
         )
     }
 }
