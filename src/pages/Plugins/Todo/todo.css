@@ -25,7 +25,28 @@
   background-color: #fff;
   border-radius: 6px;
   margin: 0 20px 20px;
-  box-shadow: 4px 8px 10px rgba(192, 192, 192, 0.5), 0 1px 1px rgba(192, 192, 192, 0.5), 0 2px 1px -1px rgba(192, 192, 192, 0.5); }
+  box-shadow: 4px 8px 10px rgba(192, 192, 192, 0.5), 0 1px 1px rgba(192, 192, 192, 0.5), 0 2px 1px -1px rgba(192, 192, 192, 0.5);
+  position: relative; }
+  .todo-item .todo-button-group {
+    position: absolute;
+    right: 10px;
+    top: 2px; }
+    .todo-item .todo-button-group span {
+      color: #fff;
+      border-radius: 50%;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      text-align: center;
+      margin-right: 4px;
+      cursor: pointer; }
+    .todo-item .todo-button-group-complete {
+      background-color: #2FD2C1;
+      box-shadow: 0px 0px 10px rgba(47, 210, 193, 0.6); }
+    .todo-item .todo-button-group-delete {
+      background-color: #ff3860;
+      box-shadow: 0px 0px 10px rgba(255, 56, 96, 0.5); }
 
 .todo-item::before {
   content: '';
@@ -52,6 +73,7 @@
   box-shadow: 0px 0px 10px rgba(255, 56, 96, 0.5); }
 
 .todo-content {
+  width: 90%;
   padding-left: 20px;
   float: left; }
 
@@ -83,9 +105,12 @@
 .todo-input-area {
   padding: 0 30%;
   margin: 20px 0 30px; }
-  .todo-input-area .todo-input {
-    width: 400px;
+  .todo-input-area .control {
     box-shadow: 0 5px 10px rgba(0, 136, 209, 0.23); }
+  .todo-input-area .todo-input {
+    width: 400px; }
+    .todo-input-area .todo-input.input {
+      box-shadow: none !important; }
   .todo-input-area .todo-input-btn {
     box-shadow: 0 5px 10px rgba(0, 136, 209, 0.23);
     margin-left: 20px; }

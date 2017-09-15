@@ -7,7 +7,11 @@ export default class Todo extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            todos: [],
+            todos: [{
+                id: 1,
+                text: '去吃饭',
+                priority: 1
+            }],
             selectedPriority: 'all',
             inputVal: ''
         }
@@ -32,24 +36,28 @@ export default class Todo extends Component {
 
     }
 
-    _selectPriority(){
+    priorityTodoShow(priority) {
+        return this.state.todos.filter(todo => todo.priority === priority);
+    }
+
+    _selectPriority() {
 
     }
     render() {
         const items = [{
-            id:'1',
-            name:'重要'
+            id: '1',
+            name: '重要'
         },
         {
-            id:'2',
-            name:'重要但不紧急'
+            id: '2',
+            name: '重要但不紧急'
         },
         {
-            id:'3',
-            name:'重要但不紧急'
-        },{
-            id:'4',
-            name:'重要但不紧急'
+            id: '3',
+            name: '重要但不紧急'
+        }, {
+            id: '4',
+            name: '重要但不紧急'
         }]
         return (
             <div>
@@ -57,15 +65,7 @@ export default class Todo extends Component {
                     <Field className="has-addons has-addons-centered">
                         <div className="control">
                             <Dropdown items={items} placeholder="Prioirty" onSelect={this._selectPriority}>
-                                
                             </Dropdown>
-                            {/* <span className="select">
-                                <select>
-                                    <option>重要</option>
-                                    <option>重要但不紧急</option>
-                                    <option>€</option>
-                                </select>
-                            </span> */}
                         </div>
                         <div className="control ">
                             <Input className="todo-input" placeholder="写下你即将做的任务吧~"></Input>
