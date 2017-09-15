@@ -32,10 +32,6 @@
   .menu-list a:hover {
     border-left: 3px solid #ff782d; }
 
-.card-img {
-  height: 200px;
-  background-color: #ff782d; }
-
 .column-card {
   width: 240px;
   margin: 0 auto; }

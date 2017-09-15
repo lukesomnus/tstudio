@@ -31,7 +31,7 @@ export default class Dropdown extends Component {
             <div className={dropdonwClassName}>
                 <div className="dropdown-trigger">
                     <button className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={() => { this._toggle() }}>
-                        <span>{placeholder}</span>
+                        <span>{placeholder || items[0].name}</span>
                         <span className="icon is-small">
                             <i className="fa fa-angle-down" aria-hidden="true"></i>
                         </span>

@@ -12,6 +12,7 @@ export { default as Card } from './Components/Card'
 export { default as Input} from './Form/Input'
 export { default as Field} from './Form/Field'
 export { default as Dropdown} from './Components/Dropdown'
+export { default as Button} from './Elements/Button'
 // export {
 //     Menu,
 //     MenuList,

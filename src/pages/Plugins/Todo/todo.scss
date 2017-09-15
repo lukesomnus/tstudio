@@ -1,0 +1,107 @@
+.todo-container {
+    position: relative;
+    background-color: #F6F8FD;
+    padding: 10px 40px;
+}
+
+.todo-group {
+    border-right: 2px solid #eee;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.todo-header {
+    height: 60px;
+    line-height: 70px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0px 2px 1px rgba(192, 192, 192, .5);
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+
+.todo-content {
+    display: inline-block;
+}
+
+.todo-item {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 6px;
+    margin: 0 20px 20px;
+    box-shadow: 4px 8px 10px rgba(192, 192, 192, .5), 0 1px 1px rgba(192, 192, 192, .5), 0 2px 1px -1px rgba(192, 192, 192, .5);
+}
+
+.todo-item::before {
+    content: '';
+    height: 60px;
+    width: 8px;
+    display: inline-block;
+    border-radius: 10px;
+    float: left;
+}
+
+.is-primary .todo-item::before {
+    background-color: #00d1b2;
+    box-shadow: 0px 0px 10px rgba(0, 209, 178, .5);
+}
+
+.is-info .todo-item::before {
+    background-color: rgb(50, 115, 220);
+    box-shadow: 0px 0px 10px rgba(50, 115, 220, .5);
+}
+
+.is-warning .todo-item::before {
+    background-color: rgb(255, 221, 87);
+    box-shadow: 0px 0px 10px rgba(255, 221, 87, .5);
+}
+
+.is-error .todo-item::before {
+    background-color: rgb(255, 56, 96);
+    box-shadow: 0px 0px 10px rgba(255, 56, 96, .5);
+}
+
+.todo-content {
+    padding-left: 20px;
+    float: left;
+}
+
+.add-todo-button {
+    position: absolute;
+    background-color: #2FD2C1;
+    box-shadow: 0px 0px 20px rgba(47, 210, 193, .6);
+    width: 55px;
+    height: 55px;
+    bottom: 20px;
+    right: 50px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 55px;
+    font-size: 30px;
+    color: #fff;
+    font-weight: bolder;
+}
+
+.todo-input-container {
+    position: absolute;
+    right: 120px;
+    bottom: 20px;
+    width: 300px;
+    height: 100px;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 10px rgba(192, 192, 192, .5);
+}
+
+.todo-input-area {
+    padding: 0 30%;
+    margin: 20px 0 30px; // background-color: #fff;
+    .todo-input {
+        width: 400px;
+        box-shadow: 0 5px 10px rgba(0, 136, 209, 0.23);
+    }
+    .todo-input-btn {
+        box-shadow: 0 5px 10px rgba(0, 136, 209, 0.23);
+        margin-left: 20px;
+    }
+}

@@ -4,7 +4,8 @@ import './App.css';
 import 'mdi/css/materialdesignicons.css'
 // import './style/font-awesome.css'
 import Introduction from './pages/Introduction';
-import Home from './pages/Home';
+import Dashboard from './pages/Dashboard';
+import Cardbox from './pages/Cardbox'
 import Tomato from './pages/Plugins/Tomato/Tomato'
 import Todo from './pages/Plugins/Todo/Todo'
 import { BrowserRouter as Router, Route, Link, NavLink } from 'react-router-dom'
@@ -20,12 +21,12 @@ class App extends Component {
       {
         index: 'home',
         url: '/home',
-        icon: 'view-home',
+        icon: 'home',
         name: '控制台'
       },
       {
-        index: 'cards',
-        url: '/cards',
+        index: 'cardbox',
+        url: '/cardbox',
         icon: 'grid-large',
         name: '卡片'
       },
@@ -68,7 +69,7 @@ class App extends Component {
             <span className="home-neck-group ">
               {
                 this.necks.map(neck =>
-                  <NavLink to={neck.url} activeClassName="is-active" className="home-neck-item">
+                  <NavLink key={neck.index} to={neck.url} activeClassName="is-active" className="home-neck-item">
                     <span className="home-neck-item-icon"><i className={`mdi mdi-${neck.icon}`}></i></span>
                     <span className="home-neck-item-name">{neck.name}</span>
                   </NavLink>
@@ -77,11 +78,12 @@ class App extends Component {
             </span>
           </div>
 
-          <div>
+          <div className="rooter-container">
             {/* <Route path="/home" component={Introduction} /> */}
-            {/* <Route path="/cards" component={Home} />
-          <Route path="/charts" component={Tomato} />
-          <Route path="/settings" component={Todo} /> */}
+            <Route path="/cardbox" component={Cardbox} />
+            <Route path="/todo" component={Todo}/>
+          {/* <Route path="/charts" component={Tomato} /> */}
+          {/* <Route path="/settings" component={Todo} /> */}
           </div>
         </div>
 

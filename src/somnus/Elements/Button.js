@@ -5,7 +5,7 @@ import { buttonColors, size } from '../common/constant';
 export default function Button({ children, className, color, size, shape, status, ...others }) {
 
     const classString = cn(
-        'section',
+        'button',
         {
             [`is-${size}`]: size,
             [`is-${color}`]: color,

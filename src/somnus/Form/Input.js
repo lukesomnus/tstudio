@@ -28,7 +28,7 @@ export default function Input({ children, className, color, size, leftIcon, righ
     )
 
     return (
-        <div className="control" >
+        <span >
             <input className={classString} {...others} />
             {
                 leftIcon && leftIcon.icon ?
@@ -42,7 +42,7 @@ export default function Input({ children, className, color, size, leftIcon, righ
                         <i className={`fa fa-${rightIcon.icon}`}></i>
                     </span>) : null
             }
-        </div>
+        </span>
     )
 };
 
