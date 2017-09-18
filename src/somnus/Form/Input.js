@@ -14,7 +14,9 @@ import propTypes from 'prop-types';
  * @param {any} { children, className, color, icon, ...others } 
  * @returns 
  */
-export default function Input({ children, className, color, size, leftIcon, rightIcon, ...others }) {
+export default function Input({ children, className, onChange, color, size, leftIcon, rightIcon, ...others }) {
+
+    let inputNode
 
     const classString = cn(
         'input',
@@ -27,9 +29,13 @@ export default function Input({ children, className, color, size, leftIcon, righ
         className
     )
 
+    function _onChange() {
+        onChange && onChange(inputNode.value)
+    }
+
     return (
         <span >
-            <input className={classString} {...others} />
+            <input className={classString} {...others} onChange={() => { _onChange() }} ref={input => inputNode = input} />
             {
                 leftIcon && leftIcon.icon ?
                     (<span className={`icon is-${leftIcon.size} is-left`}>

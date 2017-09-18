@@ -16,9 +16,9 @@ class Cardbox extends Component {
         },
         {
             id: 2,
-            title: 'Todo',
-            subtitle: '工作25分钟，休息5分钟',
-            link: '/todo',
+            title: 'Tomato',
+            subtitle: '番茄工作法',
+            link: '/tomato',
             imgUrl: ''
         }, {
             id: 3,

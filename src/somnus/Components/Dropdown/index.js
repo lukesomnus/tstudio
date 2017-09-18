@@ -5,7 +5,8 @@ export default class Dropdown extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isActive: false
+            isActive: false,
+            selectedValue: ''
         }
     }
 
@@ -17,6 +18,9 @@ export default class Dropdown extends Component {
 
     _onSelect(item) {
         this._toggle();
+        this.setState({
+            selectedValue: item.name
+        })
         this.props.onSelect(item);
     }
     render() {
@@ -31,7 +35,7 @@ export default class Dropdown extends Component {
             <div className={dropdonwClassName}>
                 <div className="dropdown-trigger">
                     <button className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={() => { this._toggle() }}>
-                        <span>{placeholder || items[0].name}</span>
+                        <span>{this.state.selectedValue || placeholder}</span>
                         <span className="icon is-small">
                             <i className="fa fa-angle-down" aria-hidden="true"></i>
                         </span>

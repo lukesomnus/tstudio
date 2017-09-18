@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-
+import './tomato.css';
+import { withRouter } from 'react-router'
+import TomotoTime from './TomatoTime';
 class Tomato extends Component {
 
     constructor(props) {
@@ -17,13 +19,6 @@ class Tomato extends Component {
 
     }
 
-    _formatSecToMin(number) {
-        let minStr = parseInt(number / 60, 10) + '';
-        let secStr = number % 60 + '';
-        minStr = minStr.length === 1 ? '0' + minStr : minStr
-        secStr = secStr.length === 1 ? '0' + secStr : secStr
-        return `${minStr}:${secStr}`
-    }
 
     _toggle() {
         const { status } = this.state
@@ -96,22 +91,37 @@ class Tomato extends Component {
 
     render() {
         const { curTime } = this.state
+        const { title } = this.props.match.params
         return (
-            <div>
-                <div>
-                    <span onClick={this._onSetting}>setting</span>
+            <div className="tomato-container">
+                <div className="tomato-header">
+                    <p className="tomato-header-status">工作中</p>
+                    <p className="tomato-header-title">{title}</p>
+                    <span className="tomato-header-settings" onClick={this._onSetting}><i className="mdi mdi-settings"></i></span>
                 </div>
-                <div>
-                    <span>{this._formatSecToMin(curTime)}</span>
+                <div className="tomato-timearea">
+                    {/* TODO: 将state放在子组件中，这样Tomato不会被重新渲染 */}
+                    <TomotoTime time={curTime}></TomotoTime>
+                    {/* {this._formatSecToMin(curTime)} */}
                 </div>
-                <div>
-                    <span onClick={() => { this._stop() }}>stop</span>
-                    <span onClick={() => { this._toggle() }}>toggle</span>
-                    <span onClick={() => { this._next() }}>next</span>
+                <div className="tomato-control">
+                    <div className="tomato-control-toggle">
+                        <span onClick={() => { this._toggle() }}>
+                            <i className="mdi mdi-youtube-play"></i>
+                        </span>
+                    </div>
+                    <div className="tomato-control-others is-clearfix">
+                        <span className="tomato-control-stop" onClick={() => { this._stop() }}>
+                            <i className="mdi mdi-stop-circle-outline"></i>
+                        </span>
+                        <span className="tomato-control-next" onClick={() => { this._next() }}>
+                            <i className="mdi mdi-skip-next-circle-outline"></i>
+                        </span>
+                    </div>
                 </div>
             </div>
         )
     }
 }
 
-export default Tomato
+export default withRouter(Tomato);

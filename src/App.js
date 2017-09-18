@@ -81,9 +81,9 @@ class App extends Component {
           <div className="rooter-container">
             {/* <Route path="/home" component={Introduction} /> */}
             <Route path="/cardbox" component={Cardbox} />
-            <Route path="/todo" component={Todo}/>
-          {/* <Route path="/charts" component={Tomato} /> */}
-          {/* <Route path="/settings" component={Todo} /> */}
+            <Route path="/todo" component={Todo} />
+            <Route path="/tomato" component={Tomato} />
+            {/* <Route path="/settings" component={Todo} /> */}
           </div>
         </div>
 

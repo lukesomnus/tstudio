@@ -2,17 +2,17 @@ import React, { Component } from 'react';
 import TodoItem from './TodoItem';
 import { Columns, Column, Input, Field, Dropdown, Button } from '../../../somnus'
 import './todo.css'
+import uuid from 'uuid';
+import store from 'store';
+import cn from 'classnames';
 
+const LOCAL_TODO = 'LOCAL_TODO';
 export default class Todo extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            todos: [{
-                id: 1,
-                text: '去吃饭',
-                priority: 1
-            }],
-            selectedPriority: 'all',
+            todos: this._getAllTodos(),
+            selectedPriority: 1,
             inputVal: ''
         }
     }
@@ -25,9 +25,25 @@ export default class Todo extends Component {
     ]
 
     _addTodo() {
-
+        const todos = this._getAllTodos();
+        todos.push({
+            id: uuid(),
+            text: this.state.inputVal,
+            completed: false,
+            priority: this.state.selectedPriority
+        })
+        store.set(LOCAL_TODO, todos);
+        this.setState({
+            todos
+        })
+        this._initTodo();
     }
 
+    _initTodo() {
+        this.setState({
+            inputVal: ''
+        })
+    }
     _toggleTodo() {
 
     }
@@ -36,79 +52,82 @@ export default class Todo extends Component {
 
     }
 
+    _getAllTodos() {
+        return store.get(LOCAL_TODO) || [];
+    }
+
     priorityTodoShow(priority) {
         return this.state.todos.filter(todo => todo.priority === priority);
     }
 
-    _selectPriority() {
+    _selectPriority(item) {
+        this.setState({
+            selectedPriority: item.priority
+        })
+    }
+    _inputTodoChange(val) {
+        this.setState({ inputVal: val })
 
     }
     render() {
         const items = [{
             id: '1',
-            name: '重要'
+            priority: 1,
+            classname:'primary',
+            name: '不重要且不紧急'
         },
         {
             id: '2',
+            priority: 2,
+            classname:'info',
             name: '重要但不紧急'
         },
         {
             id: '3',
+            priority: 3,
+            classname:'warning',
             name: '重要但不紧急'
         }, {
             id: '4',
-            name: '重要但不紧急'
+            priority: 4,
+            classname:'error',
+            name: '重要且紧急'
         }]
+
         return (
             <div>
                 <div className="todo-input-area">
                     <Field className="has-addons has-addons-centered">
                         <div className="control">
-                            <Dropdown items={items} placeholder="Prioirty" onSelect={this._selectPriority}>
+                            <Dropdown items={items} placeholder="重要但不紧急" onSelect={(item) => (this._selectPriority(item))}>
                             </Dropdown>
                         </div>
                         <div className="control ">
-                            <Input className="todo-input" placeholder="写下你即将做的任务吧~"></Input>
+                            <Input className="todo-input" placeholder="写下你即将做的任务吧~" onChange={val => { this._inputTodoChange(val) }}></Input>
                         </div>
                         <div>
-                            <Button color="primary" className="todo-input-btn">Add</Button>
+                            <Button color="primary" className="todo-input-btn" onClick={() => { this._addTodo() }}>Add</Button>
                         </div>
                     </Field>
                 </div>
 
+
                 <Columns className="todo-container">
-                    <Column span="3" className="todo-group is-primary">
-                        <div className="todo-header">
-                            <span>重要</span>
-                        </div>
-                        <TodoItem>
-                        </TodoItem>
-                        <TodoItem>
-                        </TodoItem>
-                        <TodoItem>
-                        </TodoItem>
-                    </Column>
-                    <Column span="3" className="todo-group is-info">
-                        <div className="todo-header">
-                            <span>重要</span>
-                        </div>
-                        <TodoItem>
-                        </TodoItem>
-                    </Column>
-                    <Column span="3" className="todo-group is-warning">
-                        <div className="todo-header">
-                            <span>重要</span>
-                        </div>
-                        <TodoItem>
-                        </TodoItem>
-                    </Column>
-                    <Column span="3" className="todo-group is-error">
-                        <div className="todo-header">
-                            <span>重要</span>
-                        </div>
-                        <TodoItem>
-                        </TodoItem>
-                    </Column>
+                    {
+                        items.map(item => (
+                            <Column span="3" className={`todo-group is-${item.classname}`}>
+                                <div className="todo-header">
+                                    <span>{item.name}</span>
+                                </div>
+                                {
+                                    this.priorityTodoShow(item.priority).map(item => (
+                                        <TodoItem content={item.text}>
+                                        </TodoItem>
+                                    ))
+                                }
+                            </Column>
+                        ))
+                    }
                     {/* <div className="add-todo-button">
                     <i className="mdi mdi-plus"></i>
                 </div>
