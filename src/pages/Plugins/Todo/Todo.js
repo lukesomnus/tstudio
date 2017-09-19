@@ -44,12 +44,26 @@ export default class Todo extends Component {
             inputVal: ''
         })
     }
-    _toggleTodo() {
-
+    _toggleTodo(id) {
+        const newTodos = this.state.todos.map(item => {
+            if (item.id == id) {
+                item.completed = !item.completed
+            }
+            return item;
+        })
+        this.setState({
+            todos: newTodos
+        })
+        store.set(LOCAL_TODO, newTodos);
+        console.log(newTodos)
     }
 
-    _deleteTodo() {
-
+    _deleteTodo(id) {
+        const newTodos = this.state.todos.filter(todo => todo.id != id);
+        this.setState({
+            todos: newTodos
+        })
+        store.set(LOCAL_TODO, newTodos);
     }
 
     _getAllTodos() {
@@ -73,27 +87,27 @@ export default class Todo extends Component {
         const items = [{
             id: '1',
             priority: 1,
-            classname:'primary',
+            classname: 'primary',
             name: '不重要且不紧急'
         },
         {
             id: '2',
             priority: 2,
-            classname:'info',
+            classname: 'info',
             name: '重要但不紧急'
         },
         {
             id: '3',
             priority: 3,
-            classname:'warning',
+            classname: 'warning',
             name: '重要但不紧急'
         }, {
             id: '4',
             priority: 4,
-            classname:'error',
+            classname: 'error',
             name: '重要且紧急'
         }]
-
+        const {inputVal} = this.state
         return (
             <div>
                 <div className="todo-input-area">
@@ -103,7 +117,7 @@ export default class Todo extends Component {
                             </Dropdown>
                         </div>
                         <div className="control ">
-                            <Input className="todo-input" placeholder="写下你即将做的任务吧~" onChange={val => { this._inputTodoChange(val) }}></Input>
+                            <Input className="todo-input" placeholder="写下你即将做的任务吧~" value={inputVal} onChange={val => { this._inputTodoChange(val) }}></Input>
                         </div>
                         <div>
                             <Button color="primary" className="todo-input-btn" onClick={() => { this._addTodo() }}>Add</Button>
@@ -121,7 +135,14 @@ export default class Todo extends Component {
                                 </div>
                                 {
                                     this.priorityTodoShow(item.priority).map(item => (
-                                        <TodoItem content={item.text}>
+                                        <TodoItem
+                                            key={item.id}
+                                            content={item.text}
+                                            completed={item.completed}
+                                            completeClick={() => { this._toggleTodo(item.id) }}
+                                            restartClick={() => { this._toggleTodo(item.id) }}
+                                            deleteClick={() => { this._deleteTodo(item.id) }}
+                                        >
                                         </TodoItem>
                                     ))
                                 }
