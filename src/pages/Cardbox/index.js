@@ -22,9 +22,9 @@ class Cardbox extends Component {
             imgUrl: ''
         }, {
             id: 3,
-            title: 'Todo',
+            title: 'Anniversary',
             subtitle: '工作25分钟，休息5分钟',
-            link: '/todo',
+            link: '/anniversary',
             imgUrl: ''
         }, {
             id: 4,

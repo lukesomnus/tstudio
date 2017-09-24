@@ -8,6 +8,7 @@ import Dashboard from './pages/Dashboard';
 import Cardbox from './pages/Cardbox'
 import Tomato from './pages/Plugins/Tomato/Tomato'
 import Todo from './pages/Plugins/Todo/Todo'
+import Anniversary from './pages/Plugins/Anniversary/Anniversary'
 import { BrowserRouter as Router, Route, Link, NavLink } from 'react-router-dom'
 import { Navbar, Section, Columns, Column, Menu, Card } from './somnus'
 import avator from './avator.jpeg';
@@ -83,7 +84,7 @@ class App extends Component {
             <Route path="/cardbox" component={Cardbox} />
             <Route path="/todo" component={Todo} />
             <Route path="/tomato" component={Tomato} />
-            {/* <Route path="/settings" component={Todo} /> */}
+             <Route path="/anniversary" component={Anniversary} /> 
           </div>
         </div>
 

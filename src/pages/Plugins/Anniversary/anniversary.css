@@ -1,0 +1,53 @@
+.root {
+  padding: 30px 100px;
+  background-color: #fff; }
+
+.birthday-header {
+  padding: 10px 20px 20px;
+  position: relative; }
+
+.birthday-header-day {
+  font-size: 20px;
+  font-weight: bold; }
+
+.birthday-header-date {
+  color: #999;
+  padding-left: 6px; }
+
+.birthday-add-button {
+  position: absolute;
+  right: 40px; }
+
+.birthday-setting-button {
+  position: absolute;
+  right: 20px; }
+
+.birthday-card {
+  padding: 20px;
+  color: #fff; }
+
+.birthday-card-header {
+  margin-bottom: 10px; }
+
+.birthday-card-date {
+  font-size: 20px;
+  display: inline-block;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 10px;
+  display: inline-block; }
+
+.birthday-cake {
+  display: inline-block;
+  width: 30px;
+  margin-left: 10px; }
+
+.birthdayIsNow {
+  background-color: #EF5350 !important; }
+
+.md-dialog-container {
+  z-index: 1000 !important; }
+
+.setting-container {
+  padding: 10px; }
